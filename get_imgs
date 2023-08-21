@@ -1,0 +1,15 @@
+import cv2
+
+cap = cv2.VideoCapture(0)
+img_id = 0
+while True:
+    ret, frame = cap.read()
+    if ret:
+        cv2.imshow("test", frame)
+        key = cv2.waitKey()
+        if key == 13:  # enter
+            img_name = str(img_id) + '.jpg'
+            cv2.imwrite(img_name, frame)
+            img_id = img_id + 1
+
+cv.destroyAllWindows()
